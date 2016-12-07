@@ -14,7 +14,10 @@
     <job id="simpleFileImportJob" xmlns="http://www.springframework.org/schema/batch">
         <step id="importFileStep" next="archiveFileStep">
             <tasklet>
-                <chunk reader="productReader" processor="productProcessor" writer="productWriter" commit-interval="5" />
+                <chunk reader="productReader" processor="productProcessor" writer="productWriter" commit-interval="2" />
+                <listeners>
+                <listener ref= "customItemWriterListener" />
+                </listeners>
             </tasklet>
         </step>
         <step id="archiveFileStep">

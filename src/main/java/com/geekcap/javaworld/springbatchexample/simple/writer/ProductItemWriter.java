@@ -31,7 +31,7 @@ public class ProductItemWriter implements ItemWriter<Product>
                 @Override
                 public Product mapRow( ResultSet resultSet, int rowNum ) throws SQLException {
                     Product p = new Product();
-                    p.setId( resultSet.getString( 1 ) );
+                    p.setId( resultSet.getInt( 1 ) );
                     p.setName( resultSet.getString( 2 ) );
                     p.setDescription( resultSet.getString( 3 ) );
                     p.setQuantity( resultSet.getInt( 4 ) );
